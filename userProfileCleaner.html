@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile Cleaner</title>
+</head>
+<body>
+  <h2>User Profile Cleaner</h2>
+  <button onclick="showCleanedProfile()">Clean User Profile</button>
+
+  <script>
+    
+    var userProfile = {
+      username: "  CoolUser99  ",
+      bio: "  I LOVE coding! JavaScript is Great!!!  "
+    };
+
+    
+    function cleanUserBio(profile) {
+      var cleanedUsername = profile.username.trim().toLowerCase();
+      var cleanedBio = profile.bio.trim().toLowerCase();
+
+      cleanedBio = cleanedBio.replaceAll("javascript", "js");
+
+
+      var bioLength = cleanedBio.length;
+
+      
+      return {
+        username: cleanedUsername,
+        bio: cleanedBio,
+        bioLength: bioLength
+      };
+    }
+
+    
+    function showCleanedProfile() {
+      var cleaned = cleanUserBio(userProfile);
+      console.log("Cleaned Profile:", cleaned);
+
+      alert(
+        "Username: " + cleaned.username +
+        "\nBio: " + cleaned.bio +
+        "\nBio Length: " + cleaned.bioLength
+      );
+    }
+  </script>
+</body>
+</html>
