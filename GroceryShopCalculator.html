@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GroceryShopCalculator</title>
+</head>
+<body>
+    <h2>Simple Grocery Shop Calculator</h2>
+    <script type="text/javascript">
+	var itemRice = "Rice";
+    var itemSugar = "Sugar";
+    var itemWheat = "Wheat";
+
+
+	var priceRice = 50; 
+	var priceSugar = 40;
+	var priceWheat = 30;
+
+
+	var qtyRice = 2; 
+	var qtySugar = 3;
+	var qtyWheat = 4;
+
+
+	var costRice = priceRice * qtyRice;
+	var costSugar = priceSugar * qtySugar;
+	var costWheat = priceWheat * qtyWheat;
+
+
+	console.log(itemRice + " cost: " + costRice);
+	console.log(itemSugar + " cost: " + costSugar);
+	console.log(itemWheat + " cost: " + costWheat);
+
+var totalbill=( costRice +costSugar +costWheat );
+console.log("Totalbill:"+totalbill );
+
+var qtySugar = 8;
+var costSugar = priceSugar * qtySugar;
+
+var totalbill=( costRice +costSugar +costWheat );
+console.log(" updatedTotalbill:"+totalbill );
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoreSaleCalculationt</title>
+</head>
+<body>
+     <h2>Online Store Sales Tracker</h2>
+
+     <p id="output1"></p>
+     <p id="output2"></p>
+     <script>
+        var tshirtCount = 5;
+        var tshirtPrice = 400;
+        var capCount = 3;
+        var capPrice = 150;
+        var totalEarnings = (tshirtCount * tshirtPrice) + (capCount * capPrice);
+        document.getElementById("output1").innerHTML = 
+      "Total earnings (₹400 per T-shirt): ₹" + totalEarnings;
+       tshirtPrice = 450;
+        var updatedEarnings = (tshirtCount * tshirtPrice) + (capCount * capPrice);
+        document.getElementById("output2").innerHTML = 
+      "Updated total earnings (₹450 per T-shirt): ₹" + updatedEarnings;
+     </script>
+</body>
+</html>

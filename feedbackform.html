@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Processor</title>
+</head>
+<body>
+  <h2>Feedback Processing Example</h2>
+  <p><strong>Original feedback:</strong> "   I loved the FOOD and the service!   "</p>
+
+  <button onclick="processFeedback()">Process Feedback</button>
+
+  <h3>Results:</h3>
+  <p id="trimmed"></p>
+  <p id="lowercase"></p>
+  <p id="replaced"></p>
+  <p id="position"></p>
+  <p id="array"></p>
+
+  <script>
+    function processFeedback() {
+        var feedback = "   I loved the FOOD and the service!   ";
+       
+        feedback=feedback.trim();
+        document.getElementById("trimmed").innerHTML = "After trim: " + feedback;
+
+        feedback=feedback.toLowerCase();
+        document.getElementById("lowercase").innerHTML = "Lowercase: " + feedback;
+
+        feedback=feedback.replace("food","ambience");
+        document.getElementById("replaced").innerHTML = "Replaced text: " + feedback;
+
+        var position=feedback.indexOf("service");
+        document.getElementById("position").innerHTML = "Position of 'service': " + position;
+         
+        var wordsArray=feedback.split(" ");
+        document.getElementById("array").innerHTML = "Arraay of words: [" + wordsArray.join(",") +"]"; 
+       
+    }
+
+    </script>
+</body>
+</html>
