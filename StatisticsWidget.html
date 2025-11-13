@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Statistics Widget</title>
+</head>
+<body>
+  <h2>Small Statistics Widget</h2>
+  <p id="output"></p>
+
+  <script>
+
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+
+    let userScoreStr = "75";
+
+    let userScore = Number(userScoreStr);
+
+    
+    let difference = randomNum - userScore;
+
+    let sqrtScore = Math.round(Math.sqrt(userScore));
+
+    let piValue = Math.PI;
+
+    let result = "50" * 2; 
+
+    document.getElementById("output").innerHTML = `
+      <strong>Random Number (1-100):</strong> ${randomNum}<br>
+      <strong>User Score (string):</strong> "${userScoreStr}"<br>
+      <strong>User Score (number):</strong> ${userScore}<br>
+      <strong>Difference (Random - Score):</strong> ${difference}<br>
+      <strong>Rounded √User Score:</strong> ${sqrtScore}<br>
+      <strong>π Constant:</strong> ${piValue}<br>
+      <strong>"50" * 2 (implicit conversion):</strong> ${result}
+    `;
+  </script>
+</body>
+</html>
