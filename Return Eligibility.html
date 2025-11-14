@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Return Eligibility</title>
+</head>
+<body>
+  <button id="returnBtn">Check Return Eligibility</button>
+  <div id="result"></div>
+
+  <script>
+    const order = {
+      itemName: "Cool Gadget",
+      isDelivered: true,
+      daysSinceDelivery: 5
+    };
+
+    document.getElementById("returnBtn").addEventListener("click", () => {
+      const hasItemName = "itemName" in order;
+      console.log("itemName exists:", hasItemName);
+
+      const eligible = order.isDelivered && order.daysSinceDelivery <= 7;
+
+    
+      document.getElementById("result").textContent =
+        eligible ? "Eligible for Return" : "Return Period Expired";
+
+    
+      delete order.daysSinceDelivery;  
+      console.log("Order after deletion:", order);
+    });
+  </script>
+</body>
+</html>
