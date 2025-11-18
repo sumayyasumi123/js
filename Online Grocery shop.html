@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Product Listing</title>
+</head>
+<body>
+
+<h2>Grocery Product Listing</h2>
+
+<div id="allProducts"></div>
+<div id="filteredProducts"></div>
+<div id="updatedProducts"></div>
+
+<script>
+
+let productNames = ["Apple", "Banana", "Orange", "Grapes"];
+let productPrices = [50, 20, 70, 40];
+
+let mergedProducts = productNames.map((name, index) => {
+    return `Product: ${name} - Price: ${productPrices[index]}`;
+});
+
+document.getElementById("allProducts").innerHTML = 
+    "<h3>All Products:</h3>" + mergedProducts.join("<br>");
+
+let filtered = mergedProducts.filter((item, index) => productPrices[index] > 50);
+
+document.getElementById("filteredProducts").innerHTML =
+    "<h3>Products with Price > 50:</h3>" + filtered.join("<br>");
+
+productNames.push("Watermelon");
+productPrices.push(80);
+
+let updatedMerged = productNames.map((name, index) => {
+    return `Product: ${name} - Price: ${productPrices[index]}`;
+});
+
+document.getElementById("updatedProducts").innerHTML =
+    "<h3>Updated Product List:</h3>" + updatedMerged.join("<br>");
+
+</script>
+
+</body>
+</html>
