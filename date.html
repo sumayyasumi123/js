@@ -1,0 +1,25 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var today, someday, text;
+today = new Date();
+someday = new Date();
+someday.setFullYear(2021, 2, 5);
+
+if (someday > today) {
+  text = "Today is before March 5, 2021.";
+} else {
+  text = "Today is after March 5, 2021.";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
