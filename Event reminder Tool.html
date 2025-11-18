@@ -12,13 +12,11 @@
 
 <script type="text/javascript">
 function showEventDetails() {
-    // Get the date directly (no safety check)
+    
     let inputDate = document.getElementById("eventDate").value;
 
-    // Convert to Date object
     let eventDate = new Date(inputDate);
 
-    // Extract year, month name, and day
     let year = eventDate.getFullYear();
     let day = eventDate.getDate();
     let months = [
@@ -27,11 +25,9 @@ function showEventDetails() {
     ];
     let monthName = months[eventDate.getMonth()];
 
-    // Calculate years passed
     let today = new Date();
     let yearsPassed = today.getFullYear() - year;
 
-    // Simple if condition for message
     let message;
     if (yearsPassed >= 1) {
         message = "It has been more than a year since that date.";
@@ -39,7 +35,6 @@ function showEventDetails() {
         message = "It has been less than a year since that date.";
     }
 
-    // Show result
     document.getElementById("output").innerHTML =
         "The date was " + day + " " + monthName + ", " + year +
         "<br>Full years passed: " + yearsPassed +
