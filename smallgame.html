@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Number Game</title>
+</head>
+<body>
+  <h2>Guess the Number (1 to 5)</h2>
+  <input type="number" id="userInput" placeholder="Enter a number" />
+  <button onclick="playGame()">Submit</button>
+  <p id="message"></p>
+
+  <script>
+    let attempts = 0;
+    const maxAttempts = 5;
+    const correctNumber = 3;
+
+    function numberToWord(num) {
+      switch (num) {
+        case 1: return "One";
+        case 2: return "Two";
+        case 3: return "Three";
+        case 4: return "Four";
+        case 5: return "Five";
+        default: return "Invalid";
+      }
+    }
+
+    function playGame() {
+      if (attempts >= maxAttempts) return;
+
+      const input = parseInt(document.getElementById("userInput").value);
+      const message = document.getElementById("message");
+
+      if (input < 1 || input > 5 || isNaN(input)) {
+        message.innerText = "Invalid input";
+        return; // continue without counting this attempt
+      }
+
+      message.innerText = `You entered: ${numberToWord(input)}\n`;
+
+      attempts++;
+
+      if (input === correctNumber) {
+        message.innerText += "You guessed it right!";
+        attempts = maxAttempts; // stop further input
+      } else if (attempts < maxAttempts) {
+        message.innerText += "Wrong guess. Try again.";
+      } else {
+        message.innerText += "Game over";
+      }
+    }
+  </script>
+</body>
+</html>
