@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grocery Store Calculator</title>
+</head>
+<body>
+  <h2>Grocery Store Calculator</h2>
+  <p>Enter product code (1: Apple ₹30, 2: Banana ₹10, 3: Mango ₹50) and quantity:</p>
+
+  <label for="code">Product Code:</label>
+  <input type="number" id="code" min="1" max="3"><br><br>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" min="1"><br><br>
+
+  <button onclick="addPurchase()">Add Purchase</button>
+
+  <h3>Purchases:</h3>
+  <ul id="purchaseList"></ul>
+
+  <script>
+    let purchaseCount = 0;
+
+    function addPurchase() {
+      if (purchaseCount >= 5) {
+        alert("You have already made 5 purchases.");
+        return;
+      }
+
+      const code = parseInt(document.getElementById("code").value);
+      const quantity = parseInt(document.getElementById("quantity").value);
+      let item = "", price = 0;
+
+      switch (code) {
+        case 1:
+          item = "Apple";
+          price = 30;
+          break;
+        case 2:
+          item = "Banana";
+          price = 10;
+          break;
+        case 3:
+          item = "Mango";
+          price = 50;
+          break;
+        default:
+          alert("Invalid product code. Skipping this entry.");
+          return;
+      }
+
+      const total = price * quantity;
+      const message = total > 100 ? "High purchase" : "Normal purchase";
+
+      const list = document.getElementById("purchaseList");
+      const entry = document.createElement("li");
+      entry.textContent = `${item} x ${quantity} = ₹${total} → ${message}`;
+      list.appendChild(entry);
+
+      purchaseCount++;
+    }
+  </script>
+</body>
+</html>
