@@ -1,0 +1,23 @@
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to do a global search for whitespace characters in a string.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var str = "This is a good day. I am having a good time. Hope the day goes like this.";
+  var patt1 = /\s/g;
+  var result = str.match(patt1);
+  document.getElementById("demo").innerHTML = result;
+}
+</script>
+
+</body>
+</html>
