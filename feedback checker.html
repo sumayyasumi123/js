@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Checker</title>
+</head>
+<body>
+  <h2>Open console to see feedback result</h2>
+
+  <script>
+    const feedbackJSON = '{"name":"Ravi","email":"ravi@example.com","feedback":"Thank you for your quick response!"}';
+
+    const checkFeedback = () => {
+      try {
+        const feedbackObj = JSON.parse(feedbackJSON);
+
+        const feedbackText = feedbackObj.feedback.toLowerCase();
+        if (feedbackText.includes("thank")) {
+          console.log("Positive feedback received");
+        } else {
+          console.log("Feedback noted");
+        }
+      } catch (error) {
+        console.error("Error: Invalid JSON data");
+      }
+    };
+    checkFeedback();
+  </script>
+</body>
+</html>
