@@ -25,20 +25,15 @@ I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 act
 <script>
 function processComment() {
     const comment = document.getElementById("commentInput").value;
-
-    // 1. Replace banned words (case-insensitive)
     const bannedWords = /(bad|ugly|stupid)/gi;
     const cleanedComment = comment.replace(bannedWords, "***");
-
-    // 2. Count numbers
+    
     const numberMatches = comment.match(/\d+/g);
     const numberCount = numberMatches ? numberMatches.length : 0;
 
-    // 3. Count capitalized words
     const capitalMatches = comment.match(/\b[A-Z][a-zA-Z]*/g);
     const capitalCount = capitalMatches ? capitalMatches.length : 0;
 
-    // Output to HTML
     document.getElementById("cleaned").innerText = cleanedComment;
     document.getElementById("numbers").innerText = numberCount;
     document.getElementById("capWords").innerText = capitalCount;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON to JS Example</title>
+</head>
+<body>
+  <h2>Check the console for output</h2>
+
+  <script>
+    const jsonText = '{"name":"Alice","email":"alice@example.com","message":"Hello Copilot!"}';
+    const showMessage = () => {
+      try {
+        const userObj = JSON.parse(jsonText);
+        console.log(`Message received from ${userObj.name}`);
+      } catch (error) {
+        console.error("Error: Invalid JSON data");
+      }
+    };
+    showMessage();
+  </script>
+</body>
+</html>
