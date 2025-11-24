@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book System</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .log { background: #f0f0f0; padding: 10px; border-radius: 5px; margin-top: 10px; }
+    .ok { color: green; }
+    .err { color: red; }
+  </style>
+</head>
+<body>
+  <h2>Book Information System</h2>
+  <div id="details"></div>
+  <div class="log" id="log"></div>
+
+  <script>
+    class Book {
+      constructor(title, author, price) {
+        this._title = title;
+        this._author = author;
+        this._price = price;
+      }
+
+      getTitle() {
+        return this._title;
+      }
+
+      getAuthor() {
+        return this._author;
+      }
+
+      setPrice(newPrice) {
+        if (typeof newPrice === "number" && newPrice > 0) {
+          this._price = newPrice;
+          return { ok: true, message: `Price updated to ${newPrice}` };
+        } else {
+          return { ok: false, message: "Invalid price. Must be a number greater than 0." };
+        }
+      }
+
+      getDetails() {
+        return `Title: ${this._title}<br>Author: ${this._author}<br>Price: ${this._price}`;
+      }
+    }
+
+    const book1 = new Book("The Alchemist", "Paulo Coelho", 350);
+    let result1 = book1.setPrice(-100);   
+    let result2 = book1.setPrice("abc");  
+
+    let result3 = book1.setPrice(450);  
+
+    const logDiv = document.getElementById("log");
+    [result1, result2, result3].forEach(r => {
+      const p = document.createElement("p");
+      p.textContent = r.message;
+      p.className = r.ok ? "ok" : "err";
+      logDiv.appendChild(p);
+    });
+
+    document.getElementById("details").innerHTML = "<strong>Final Book Details:</strong><br>" + book1.getDetails();
+  </script>
+</body>
+</html>
