@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User System</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .log { background: #f0f0f0; padding: 10px; border-radius: 5px; margin-top: 10px; }
+    .ok { color: green; }
+    .err { color: red; }
+  </style>
+</head>
+<body>
+  <h2>User Information System</h2>
+  <div id="details"></div>
+  <div class="log" id="log"></div>
+
+  <script>
+
+    class User {
+      constructor(name, age, email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+      }
+
+      getName() {
+        return this.name;
+      }
+
+      getAge() {
+        return this.age;
+      }
+
+      setEmail(newEmail) {
+        if (typeof newEmail === "string" && newEmail.includes("@")) {
+          this.email = newEmail;
+          return { ok: true, message: `Email updated to ${newEmail}` };
+        } else {
+          return { ok: false, message: "Invalid email. Must contain '@' symbol." };
+        }
+      }
+
+      getDetails() {
+        return `Name: ${this.getName()}<br>Age: ${this.getAge()}<br>Email: ${this.email}`;
+      }
+    }
+
+    const user1 = new User("Sumayya", 22, "sumayya@example.com");
+
+    let result1 = user1.setEmail("sumayyaexample.com");
+    let result2 = user1.setEmail("sumayya@domain.com"); 
+
+    const logDiv = document.getElementById("log");
+    [result1, result2].forEach(r => {
+      const p = document.createElement("p");
+      p.textContent = r.message;
+      p.className = r.ok ? "ok" : "err";
+      logDiv.appendChild(p);
+    });
+
+    document.getElementById("details").innerHTML = "<strong>Final User Details:</strong><br>" + user1.getDetails();
+  </script>
+</body>
+</html>
